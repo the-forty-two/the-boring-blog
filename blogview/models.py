@@ -35,6 +35,7 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='draft')
+    music_link = models.CharField(max_length=300, default='')
 
     def get_absolute_url(self):
         return reverse('blogview:post', args=[self.slug])
