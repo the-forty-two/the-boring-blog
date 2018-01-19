@@ -40,5 +40,7 @@ def blog(request):
 def post(request, slug):
     single_post = get_object_or_404(Post.objects.all(), slug=slug)
     template = 'post.html'
-    context = {'post': single_post}
+    context = {
+        'post': single_post,
+    }
     return render(request, template, context)
