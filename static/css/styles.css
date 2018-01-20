@@ -1,3 +1,7 @@
+.h2, h2 {
+  font-size: 1rem;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
