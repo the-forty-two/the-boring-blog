@@ -1,5 +1,24 @@
-.h2, h2 {
-  font-size: 1rem;
+.chip {
+	margin-left: 5px;
+}
+
+.date-author {
+	font-size: 1.2rem;
+}
+
+.logo {
+	margin-right: 10px;
+}
+
+.post {
+	max-width: 75%;
+}
+
+.center {
+	margin: auto;
+    width: 50%;
+    align-content: center;
+    padding: 10px;
 }
 
 .footer {

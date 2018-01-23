@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <nav aria-label="Page navigation">
         <ul class="pagination">
             {% if page.has_previous %}
@@ -19,3 +20,6 @@
             {% endif %}
         </ul>
 </nav>
+
+<link rel="stylesheet" href="{% static "css/styles.css" %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

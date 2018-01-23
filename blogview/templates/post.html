@@ -1,17 +1,34 @@
 {% extends 'base.html' %}
-{% block title %} blog {% endblock %}
+{% block title %} {{ post.title }} : {{ post.author }} {% endblock %}
 {% block body %}
-    <div>
-        <div>
-           <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h1>
-            <div>
-                <h2>by {{ post.author }} on {{ post.published }}</h2>
-                <a href="{{ post.category.get_absolute_url }}"> in {{ post.category }} </a>
+{% load staticfiles%}
+      <div class="row post">
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title"><a>{{ post.title }}</a></span>
+                <span class="date-author">by {{ post.author }} on {{ post.published }}</span>
+                <div class="chip">
+                  <a href="{{ post.category.get_absolute_url }}"> in {{ post.category }} </a>
+                  <i class="close material-icons">close</i>
+                </div>
+                <hr>
+                <p>{{ post.content | linebreaks }}</p>
+              </div>
+              <div class="card-action">
+                <a href="#">
+                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </a>
+                <a href="{%  url 'blogview:blog' %}">
+                  Go Back to Home
+                </a>
+              </div>
             </div>
-            <hr>
-                {{ post.content }}
-            </hr>
-        </div>
+          </div>
+      </div>
 
         <div id="disqus_thread"></div>
             <script>
@@ -38,6 +55,11 @@
             <source src="{{ post.music_link }}">
             You are seeing this if native audio playback is not supported.
         </audio>
-        
+
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 {% endblock %}
