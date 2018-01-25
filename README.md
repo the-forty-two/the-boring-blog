@@ -14,3 +14,8 @@ http://localhost:8000/blog
 username: test
 password: test1234
 ```
+
+## The boring blog is temporarily hosted at-
+```
+http://mukulkyadav.pythonanywhere.com/blog/
+```
