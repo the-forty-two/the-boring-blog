@@ -4,7 +4,7 @@
 {% load staticfiles %}
     <div>
         {% for post in all_posts %}
-            <div class="row post">
+            <div class="row post" onmouseenter="playIt('{{ post.music_link }}')" onmouseleave="StopIt('{{ post.music_link }}')">
                 <div class="col s12 m6">
                   <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
@@ -30,13 +30,23 @@
                     </div>
                   </div>
                 </div>
+                <audio id = "{{ post.music_link }}" controls style="display: none;">
+                    <source src="{{ post.music_link }}">
+                    You are seeing this if native audio playback is not supported.
+                </audio>
             </div>
         {% endfor %}
           {% include 'paginator.html' with page=all_posts %}
     </div>
+    <script src="{% static "js/musicOnHover.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 {% endblock %}
