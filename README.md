@@ -19,3 +19,8 @@ password: test1234
 ```
 http://mukulkyadav.pythonanywhere.com/blog/
 ```
+
+## Fetch API
+```
+http://mukulkyadav.pythonanywhere.com/blog/api/
+```

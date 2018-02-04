@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Category
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
+
+from .models import Post, Category
 
 
 def posts_by_category(request, category_slug):
@@ -10,7 +11,7 @@ def posts_by_category(request, category_slug):
         category = get_object_or_404(Category, slug=category_slug)
         posts = posts.filter(category=category)
     paginator = Paginator(posts, 2)
-    page = request.GET.get('page')
+    page = request.GET.get('page', )
     try:
         all_posts = paginator.page(page)
     except PageNotAnInteger:
@@ -25,7 +26,7 @@ def posts_by_category(request, category_slug):
 def blog(request):
     all_post = Post.objects.filter(status='published')
     paginator = Paginator(all_post, 2)
-    page = request.GET.get('page')
+    page = request.GET.get('page', )
     try:
         all_posts = paginator.page(page)
     except PageNotAnInteger:
